@@ -18,4 +18,16 @@ public interface CustomerMapper {
      * 查询所有的数据
      */
     public List<Customer> findAll();
+
+    //保存数据
+    void save(Customer customer);
+
+    //通过id查询数据
+    Customer findById(Integer id);
+
+    //修改数据
+    void update(Customer customer);
+
+    //删除数据
+    void delete(Integer[] id);
 }

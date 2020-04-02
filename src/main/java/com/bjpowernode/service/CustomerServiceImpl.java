@@ -27,4 +27,26 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> findAll() {
         return dao.findAll();
     }
+
+    @Override
+    public void save(Customer customer) {
+        //判断用户是添加还是修改
+        if(customer.getId() != null){
+            //修改
+            dao.update(customer);
+        }else {
+            //添加
+            dao.save(customer);
+        }
+    }
+
+    @Override
+    public Customer findById(Integer id) {
+        return dao.findById(id);
+    }
+
+    @Override
+    public void delete(Integer[] id) {
+        dao.delete(id);
+    }
 }

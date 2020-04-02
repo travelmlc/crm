@@ -16,4 +16,12 @@ public interface CustomerService {
 
     //查询所有数据
     public List<Customer> findAll();
+
+    //保存数据
+    void save(Customer customer);
+
+    Customer findById(Integer id);
+
+    //删除数据
+    void delete(Integer[] id);
 }

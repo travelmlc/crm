@@ -8,4 +8,26 @@
     <select id="findAll" resultType="Customer">
 		select id,name,gender,telephone,addres from t_customers
     </select>
+
+    <insert id="save">
+        insert into t_customers(name,gender,telephone,addres) values(#{name},#{gender},#{telephone},#{addres});
+    </insert>
+
+    <select id="findById" resultType="Customer" parameterType="int">
+        select id,name,gender,telephone,addres from t_customers where id = #{value};
+    </select>
+
+    <update id="update">
+        update t_customers set name=#{name},gender=#{gender},telephone=#{telephone},addres=#{addres} where id=#{id};
+    </update>
+
+    <delete id="delete" parameterType="Integer[]">
+        delete from t_customers
+            <where>
+                id
+                <foreach collection="array" item="id" open="in(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </where>
+    </delete>
 </mapper>
